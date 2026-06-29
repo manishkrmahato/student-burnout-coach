@@ -111,7 +111,7 @@ The app will open at `http://localhost:8501`
 
 ## Dataset
 
-The training data (`student_dataset.csv`) is a survey-based dataset capturing student behavioral patterns — sleep quality, stress levels, fatigue frequency, academic workload, and electronic device usage habits. Categorical columns were label-encoded before training. Rows with missing values were dropped.
+The training data (`student_dataset.csv`) is a survey-based dataset capturing student behavioral patterns - sleep quality, stress levels, fatigue frequency, academic workload, and electronic device usage habits. Categorical columns were label-encoded before training. Rows with missing values were dropped.
 
 Key features used for the burnout score:
 - Average daily sleep hours
@@ -126,7 +126,7 @@ Key features used for the burnout score:
 After filling in your data, the app gives you:
 
 - A **numeric burnout score** with a progress bar showing severity
-- A **risk label** — Low, Moderate, or High
+- A **risk label** - Low, Moderate, or High
 - A **bar chart** breaking down your top stress contributors
 - A **day schedule** tailored to your risk level
 - **Specific lifestyle tips** (e.g., "Increase daily water intake", "Practice breathing exercises")
@@ -146,7 +146,7 @@ After filling in your data, the app gives you:
 ## Author
 
 **Manish Kumar Mahato**
-B.Tech — Artificial Intelligence & Data Science, NIT Warangal (2024–2028)
+B.Tech - Artificial Intelligence & Data Science, NIT Warangal (2024–2028)
 
 [GitHub](https://github.com/manishkrmahato) · [LinkedIn](https://linkedin.com/in/manishkrmahato)
 
