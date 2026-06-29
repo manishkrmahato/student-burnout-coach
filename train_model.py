@@ -8,10 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
-
-# --------------------------------------------------
-# STEP 1 : LOAD DATASET
-# --------------------------------------------------
+#LOAD DATASET
 
 data = pd.read_csv("student_dataset.csv")
 
@@ -20,27 +17,18 @@ print("Dataset Loaded Successfully")
 print("\nColumn Names:")
 print(data.columns)
 
+#REMOVE UNNECESSARY COLUMN
 
-# --------------------------------------------------
-# STEP 2 : REMOVE UNNECESSARY COLUMN
-# --------------------------------------------------
-
-# remove timestamp (not useful for prediction)
 data = data.drop("Timestamp", axis=1)
 
-
-# --------------------------------------------------
-# STEP 3 : HANDLE MISSING VALUES
-# --------------------------------------------------
+#HANDLE MISSING VALUES
 
 data = data.dropna()
 
 print("\nDataset shape after cleaning:", data.shape)
 
 
-# --------------------------------------------------
-# STEP 4 : ENCODE CATEGORICAL DATA
-# --------------------------------------------------
+#ENCODE CATEGORICAL DATA
 
 le = LabelEncoder()
 
@@ -48,10 +36,7 @@ for col in data.columns:
     if data[col].dtype == "object":
         data[col] = le.fit_transform(data[col])
 
-
-# --------------------------------------------------
-# STEP 5 : CREATE BURNOUT SCORE
-# --------------------------------------------------
+#CREATE BURNOUT SCORE
 
 # Select key burnout related columns
 
@@ -75,27 +60,19 @@ burnout_score = (
 
 data["burnout_score"] = burnout_score
 
-
-# --------------------------------------------------
-# STEP 6 : SPLIT FEATURES & TARGET
-# --------------------------------------------------
+#SPLIT FEATURES & TARGET
 
 X = data.drop("burnout_score", axis=1)
 y = data["burnout_score"]
 
 
-# --------------------------------------------------
-# STEP 7 : TRAIN TEST SPLIT
-# --------------------------------------------------
+#TRAIN TEST SPLIT
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-
-# --------------------------------------------------
-# STEP 8 : TRAIN MODEL
-# --------------------------------------------------
+#TRAIN MODEL
 
 model = RandomForestRegressor(n_estimators=200)
 
@@ -103,10 +80,7 @@ model.fit(X_train, y_train)
 
 print("\nModel Training Completed")
 
-
-# --------------------------------------------------
-# STEP 9 : EVALUATE MODEL
-# --------------------------------------------------
+# EVALUATE MODEL
 
 pred = model.predict(X_test)
 
@@ -115,10 +89,7 @@ mse = mean_squared_error(y_test, pred)
 print("\nModel Mean Squared Error:", mse)
 
 
-# --------------------------------------------------
-# STEP 10 : FEATURE IMPORTANCE
-# --------------------------------------------------
-
+#FEATURE IMPORTANCE
 importance = model.feature_importances_
 
 feature_names = X.columns
@@ -129,9 +100,7 @@ for name, score in zip(feature_names, importance):
     print(name, ":", round(score, 3))
 
 
-# --------------------------------------------------
-# STEP 11 : SAVE MODEL
-# --------------------------------------------------
+#SAVE MODEL
 
 os.makedirs("model", exist_ok=True)
 
