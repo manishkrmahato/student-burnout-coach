@@ -1,6 +1,6 @@
 # 🧠 AI Student Burnout Coach
 
-> An end-to-end machine learning web app that predicts student burnout risk, analyzes lifestyle habits, generates personalized study plans, and suggests wellness improvements — all in one place.
+> An end-to-end machine learning web app that predicts student burnout risk, analyzes lifestyle habits, generates personalized study plans, and suggests wellness improvements - all in one place.
 
 **Live Demo ->** [student-burnout-coach-by-manish.streamlit.app](https://student-burnout-coach-by-manish.streamlit.app/)
 
